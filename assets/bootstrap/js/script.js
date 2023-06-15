@@ -1,23 +1,32 @@
 var openFormButton = document.getElementById("openFormButton");
+var openAvaliadorFormButton = document.getElementById(
+  "openAvaliadorFormButton"
+);
 var campaignForm = document.getElementById("campaignForm");
+var avaliadorForm = document.getElementById("avaliadorForm");
 var campanhasContainer = document.getElementById("campanhasContainer");
 
 openFormButton.addEventListener("click", function () {
-  openFormButton.style.display = "none"; // Esconde o botão
-  campaignForm.classList.remove("hidden"); // Remove a classe hidden para exibir o formulário
+  openFormButton.style.display = "none";
+  campaignForm.classList.remove("hidden");
+});
+
+openAvaliadorFormButton.addEventListener("click", function () {
+  openAvaliadorFormButton.style.display = "none";
+  avaliadorForm.classList.remove("hidden");
 });
 
 document
   .getElementById("campaignForm")
   .addEventListener("submit", function (event) {
-    event.preventDefault(); // Evita o envio do formulário para atualizar a página
+    event.preventDefault();
 
     var responsavel = document.getElementById("responsavel").value;
-    var nome = document.getElementById("nome").value;
-    var descricao = document.getElementById("descricao").value;
+    var nome = document.getElementById("nomeCampanha").value;
+    var descricao = document.getElementById("descricaoCampanha").value;
     var periodo = document.getElementById("periodo").value;
     var premio = document.getElementById("premio").value;
-    var avaliador = document.getElementById("avaliador").value;
+    var avaliador = document.getElementById("avaliadorCampanha").value;
 
     var campanha = {
       responsavel: responsavel,
@@ -37,7 +46,7 @@ document
 function createCard(campanha) {
   var card = document.createElement("div");
   card.classList.add("card");
-  card.id = campanha.nome.toLowerCase().replace(/ /g, "-"); // Adiciona um ID exclusivo ao cartão
+  card.id = campanha.nome.toLowerCase().replace(/ /g, "-");
 
   var cardContent = `
     <h2>${campanha.nome}</h2>
@@ -59,25 +68,23 @@ function createCard(campanha) {
 
 function clearFormFields() {
   document.getElementById("responsavel").value = "";
-  document.getElementById("nome").value = "";
-  document.getElementById("descricao").value = "";
+  document.getElementById("nomeCampanha").value = "";
+  document.getElementById("descricaoCampanha").value = "";
   document.getElementById("periodo").value = "";
   document.getElementById("premio").value = "";
-  document.getElementById("avaliador").value = "";
+  document.getElementById("avaliadorCampanha").value = "";
 }
-function handleVoteButtonClick(event) {
-  var card = event.target.closest(".card"); // Obtém o elemento pai do botão (o cartão)
-  var votesElement = card.querySelector(".votes"); // Obtém o elemento de contagem de votos
-  var votesCount = parseInt(votesElement.textContent); // Obtém a contagem atual de votos
 
-  // Incrementa a contagem de votos e atualiza o elemento de contagem de votos
+function handleVoteButtonClick(event) {
+  var card = event.target.closest(".card");
+  var votesElement = card.querySelector(".votes");
+  var votesCount = parseInt(votesElement.textContent);
+
   votesCount++;
   votesElement.textContent = votesCount + " votos";
 
-  event.target.disabled = true; // Desabilita o botão de votação após o clique
+  event.target.disabled = true;
 }
-
-// ...
 
 document
   .getElementById("campanhasContainer")

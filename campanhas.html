@@ -153,6 +153,9 @@
         </h1>
 
         <button id="openFormButton" class="button">Criar Campanha</button>
+        <button id="openAvaliadorFormButton" class="button">
+          Criar Avaliador
+        </button>
 
         <form id="campaignForm" class="hidden">
           <label for="responsavel">Responsável:</label>
@@ -164,26 +167,34 @@
           /><br />
 
           <label for="nome">Nome:</label>
-          <input type="text" id="nome" name="nome" required /><br />
+          <input type="text" id="nomeCampanha" name="nome" required /><br />
 
           <label for="descricao">Descrição:</label>
-          <textarea id="descricao" name="descricao" required></textarea><br />
+          <textarea id="descricaoCampanha" name="descricao" required></textarea
+          ><br />
 
-          <label for="periodo">Período:</label>
+          <label for="periodoCampanha">Período:</label>
           <input type="text" id="periodo" name="periodo" required /><br />
 
-          <label for="premio">Valor do Prêmio:</label>
+          <label for="premioCampanha">Valor do Prêmio:</label>
           <input type="text" id="premio" name="premio" required /><br />
 
           <label for="avaliador">Avaliador:</label>
-          <select id="avaliador" name="avaliador" required>
+          <select id="avaliadorCampanha" name="avaliador" required>
             <option value="">Selecione o avaliador</option>
             <option value="joao_silva">João Silva</option></select
           ><br />
 
-          <button type="submit">Criar Campanha</button>
+          <button type="submit">Cadastrar Campanha</button>
         </form>
-
+        <form id="avaliadorForm" class="hidden">
+          <label for="nomeAvaliador">Nome do Avaliador:</label>
+          <input type="text" id="nomeAvaliador" name="nome" required />
+          <label for="nomeAvaliador">CPF do Avaliador:</label>
+          <input type="text" id="cpfAvaliador" name="cpf" required />
+          <br />
+          <button id="cadastrarAvaliador" type="submit">Cadastrar</button>
+        </form>
         <div id="campanhasContainer" class="campaigns-container"></div>
       </div>
     </section>
@@ -228,7 +239,7 @@
         </div>
       </div>
     </section>
-
+    <script src="api.js"></script>
     <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="assets/web/assets/cookies-alert-plugin/cookies-alert-core.js"></script>
     <script src="assets/web/assets/cookies-alert-plugin/cookies-alert-script.js"></script>
