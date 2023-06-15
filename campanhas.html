@@ -16,6 +16,11 @@
     <title>Campanhas</title>
     <link
       rel="stylesheet"
+      type="text/css"
+      href="assets/bootstrap/css/styles.css"
+    />
+    <link
+      rel="stylesheet"
       href="assets/web/assets/uniaraxa-icons2/uniaraxa2.css"
     />
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" />
@@ -28,10 +33,12 @@
       rel="stylesheet"
       href="assets/web/assets/gdpr-plugin/gdpr-styles.css"
     />
+
     <link rel="stylesheet" href="assets/animatecss/animate.css" />
     <link rel="stylesheet" href="assets/dropdown/css/style.css" />
     <link rel="stylesheet" href="assets/socicon/css/styles.css" />
     <link rel="stylesheet" href="assets/theme/css/style.css" />
+
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css?family=Jost:100,200,300,400,500,600,700,800,900,100i,200i,300i,400i,500i,600i,700i,800i,900i&display=swap"
@@ -141,76 +148,43 @@
       id="pricing1-15"
     >
       <div class="container">
-        <div class="row justify-content-center">
-          <div class="card col-12 col-lg-6">
-            <div class="card-wrapper">
-              <div class="card-box align-left">
-                <h6 class="card-title mbr-fonts-style mb-4 display-2">
-                  <strong>Ideias para Reduzir Custos e Economizar</strong>
-                </h6>
-                <ul class="list mbr-fonts-style mb-5 display-7">
-                  <li class="item-wrap">
-                    Objetivo: Buscamos sugestões inovadoras e viáveis para
-                    reduzir custos e otimizar processos em nossa empresa.
-                  </li>
-                  <li class="item-wrap">
-                    Período da Campanha: De 1º de agosto a 30 de setembro.
-                  </li>
-                  <li class="item-wrap">
-                    Responsável: Departamento de Gestão de Custos.
-                  </li>
-                  <li class="item-wrap">
-                    Valor do Prêmio: R$ 500 em vale-compras.
-                  </li>
-                  <li class="item-wrap">
-                    Avaliador: Maria Silva, Gerente de Finanças.
-                  </li>
-                </ul>
-              </div>
-              <div class="mbr-section-btn">
-                <a
-                  class="btn btn-primary display-4"
-                  href="https://novo.uniaraxa.edu.br/"
-                  >Learn more</a
-                >
-              </div>
-            </div>
-          </div>
-          <div class="card col-12 col-lg-6">
-            <div class="card-wrapper">
-              <div class="card-box align-left">
-                <h6 class="card-title mbr-fonts-style mb-4 display-2">
-                  <strong>Ideias para Reduzir Custos e Economizar</strong>
-                </h6>
-                <ul class="list mbr-fonts-style mb-5 display-7">
-                  <li class="item-wrap">
-                    Objetivo: Buscamos sugestões inovadoras e viáveis para
-                    reduzir custos e otimizar processos em nossa empresa.
-                  </li>
-                  <li class="item-wrap">
-                    Período da Campanha: De 1º de agosto a 30 de setembro.
-                  </li>
-                  <li class="item-wrap">
-                    Responsável: Departamento de Gestão de Custos.
-                  </li>
-                  <li class="item-wrap">
-                    Valor do Prêmio: R$ 500 em vale-compras.
-                  </li>
-                  <li class="item-wrap">
-                    Avaliador: Maria Silva, Gerente de Finanças.
-                  </li>
-                </ul>
-              </div>
-              <div class="mbr-section-btn">
-                <a
-                  class="btn btn-primary display-4"
-                  href="https://novo.uniaraxa.edu.br/"
-                  >Learn more</a
-                >
-              </div>
-            </div>
-          </div>
-        </div>
+        <h1 style="text-align: center; margin-top: 0; padding-top: 20px">
+          <b>Campanha de Sugestões</b>
+        </h1>
+
+        <button id="openFormButton" class="button">Criar Campanha</button>
+
+        <form id="campaignForm" class="hidden">
+          <label for="responsavel">Responsável:</label>
+          <input
+            type="text"
+            id="responsavel"
+            name="responsavel"
+            required
+          /><br />
+
+          <label for="nome">Nome:</label>
+          <input type="text" id="nome" name="nome" required /><br />
+
+          <label for="descricao">Descrição:</label>
+          <textarea id="descricao" name="descricao" required></textarea><br />
+
+          <label for="periodo">Período:</label>
+          <input type="text" id="periodo" name="periodo" required /><br />
+
+          <label for="premio">Valor do Prêmio:</label>
+          <input type="text" id="premio" name="premio" required /><br />
+
+          <label for="avaliador">Avaliador:</label>
+          <select id="avaliador" name="avaliador" required>
+            <option value="">Selecione o avaliador</option>
+            <option value="joao_silva">João Silva</option></select
+          ><br />
+
+          <button type="submit">Criar Campanha</button>
+        </form>
+
+        <div id="campanhasContainer" class="campaigns-container"></div>
       </div>
     </section>
 
@@ -263,6 +237,7 @@
     <script src="assets/dropdown/js/navbar-dropdown.js"></script>
     <script src="assets/theme/js/script.js"></script>
     <script src="assets/formoid/formoid.min.js"></script>
+    <script src="assets/bootstrap/js/script.js"></script>
 
     <input
       name="cookieData"
