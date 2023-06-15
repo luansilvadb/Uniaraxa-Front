@@ -145,35 +145,8 @@
               />
             </div>
           </div>
-          <div class="col-lg-3 offset-lg-1 mbr-form" data-form-type="formoid">
-            <form
-              action="https://uniaraxa.eu/"
-              method="POST"
-              class="mbr-form form-with-styler"
-              data-form-title="Form Name"
-            >
-              <input
-                type="hidden"
-                name="email"
-                data-form-email="false"
-                value="R7nsXkv6fA9ykqVgityaCYzVisufUevspYBcnMLroYu27fBnMNVJ7nqdVzIcbyjeEP0pqYf/95voKvpYQFW0fiLKhDakc7f8lEyOH4VE9IpaBMgZCP1M7C3AyXbP+4P8"
-              />
-              <div class="row">
-                <div
-                  hidden="hidden"
-                  data-form-alert=""
-                  class="alert alert-success col-12"
-                >
-                  teste
-                </div>
-                <div
-                  hidden="hidden"
-                  data-form-alert-danger=""
-                  class="alert alert-danger col-12"
-                >
-                  Oops...! some problem!
-                </div>
-              </div>
+          <div class="col-lg-3 offset-lg-1 mbr-form" >
+           
               <div class="dragArea row">
                 <div class="col-lg-12 col-md-12 col-sm-12">
                   <h1 class="mbr-section-title mb-4 display-2">
@@ -184,7 +157,7 @@
                   class="col-lg-12 col-md col-12 form-group mb-3"
                   data-for="login"
                 >
-                  <form onsubmit="enviarFormulario(event)">
+                <form action="http://softwarehouse.ddns.net:62617/api/Funcionario" method="POST">
                   <input
                     type="text"
                     name="login"
@@ -234,9 +207,8 @@
                   /></form>
                 </div>
                 <div class="col-12 col-md-auto mbr-section-btn">
-                  <button type="submit" class="btn btn-primary display-4">
-                    Cadastrar
-                  </button>
+                  <button id="cadastrarBtn" type="submit" class="btn btn-primary display-4">Cadastrar</button>
+
                 </div>
               </div>
               <span class="gdpr-block">
@@ -311,51 +283,9 @@
     </section>
 
     <script>
-      // Função para enviar os dados do formulário para a API
-      function enviarFormulario(event) {
-        event.preventDefault(); // Impede o envio do formulário padrão
-
-        // Obtém os valores dos campos do formulário
-        var login = document.getElementById("login").value;
-        var senha = document.getElementById("senha").value;
-        var nome = document.getElementById("nome").value;
-        var cpf = document.getElementById("cpf").value;
-
-        // Monta o objeto com os dados do funcionário
-        var funcionario = {
-          login: login,
-          senha: senha,
-          nome: nome,
-          cpf: cpf,
-        };
-
-        // Realiza a requisição POST para a API
-        fetch("http://softwarehouse.ddns.net:62617/api/Funcionario", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(funcionario),
-        })
-          .then((response) => response.json())
-          .then((data) => {
-            // Exibe uma mensagem de sucesso ou erro
-            if (data.success) {
-              alert("Cadastro realizado com sucesso!");
-            } else {
-              alert(
-                "Erro ao cadastrar funcionário. Por favor, tente novamente."
-              );
-            }
-          })
-          .catch((error) => {
-            alert(
-              "Erro ao conectar com a API. Por favor, verifique sua conexão de internet."
-            );
-          });
-      }
+      
     </script>
-
+    <script src="api.js"></script>
     <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="assets/web/assets/cookies-alert-plugin/cookies-alert-core.js"></script>
     <script src="assets/web/assets/cookies-alert-plugin/cookies-alert-script.js"></script>
@@ -363,7 +293,7 @@
     <script src="assets/ytplayer/index.js"></script>
     <script src="assets/dropdown/js/navbar-dropdown.js"></script>
     <script src="assets/theme/js/script.js"></script>
-    <script src="assets/formoid/formoid.min.js"></script>
+    
 
     <input
       name="cookieData"
