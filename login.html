@@ -12,6 +12,7 @@
       href="assets/images/logo-uniaraxa.png"
       type="image/x-icon"
     />
+    
     <meta name="description" content="" />
 
     <title>Login</title>
@@ -51,69 +52,52 @@
       href="assets/uniaraxa/css/mbr-additional.css"
       type="text/css"
     />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost&display=swap">
+  <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
   </head>
 
   <body>
-    <section
-      data-bs-version="5.1"
-      class="form4 cid-tGQlBSDzxq mbr-fullscreen"
-      id="form4-9"
-    >
+    <section data-bs-version="5.1" class="form4 cid-tGQlBSDzxq mbr-fullscreen" id="form4-9">
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-lg-4">
-            <form method="post">
-              <h1 class="mb-4"><strong>Login</strong></h1>
-
-              <div class="form-group">
-                <input
-                  type="text"
-                  name="cpf"
-                  class="form-control"
-                  placeholder="CPF"
-                  id="cpf"
-                />
+            <div class="form-wrapper">
+              <div class="form-container">
+                <h2>Entre na sua conta</h2>
+                <form>
+                  <input type="text" id="cpf" name="cpf" placeholder="CPF">
+                  <input type="password" id="senha" name="password" placeholder="Senha">
+                  <button id="login-btn" type="submit">Entrar</button>
+                  <div class="form-group form-check">
+                    
+                    
+                    <span class="gdpr-block">
+                      <label>
+                        <span class="textGDPR display-7" style="color: #a7a7a7">
+                          <input
+                            type="checkbox"
+                            name="gdpr"
+                            id="gdpr-form4-3"
+                            required=""
+                          />
+                          Ao continuar, você concorda com nossos
+                          <a
+                            style="color: #1a73e8; text-decoration: none"
+                            href="terms.html"
+                            >Termos de Serviço</a
+                          >
+                          e
+                          <a
+                            style="color: #1a73e8; text-decoration: none"
+                            href="policy.html"
+                            >Política de Privacidade</a
+                          >.
+                        </span>
+                      </label>
+                    </span>
+                </form>
               </div>
-
-              <div class="form-group">
-                <input
-                  type="password"
-                  name="senha"
-                  class="form-control"
-                  placeholder="Senha"
-                  id="senha"
-                  autocomplete="senha"
-                />
-              </div>
-
-              <button
-                id="entrarBtn"
-                type="submit"
-                class="btn btn-primary btn-block mb-3"
-              >
-                Entrar
-              </button>
-
-              <div class="form-group form-check">
-                <input
-                  type="checkbox"
-                  name="gdpr"
-                  id="gdpr-form4-9"
-                  required
-                  class="form-check-input"
-                />
-                <label class="form-check-label">
-                  Ao continuar, você concorda com nossos
-                  <a href="terms.html" class="text-primary"
-                    >Termos de Serviço</a
-                  >
-                  e
-                  <a href="policy.html" class="text-primary"
-                    >Política de Privacidade</a
-                  >.
-                </label>
-              </div>
-            </form>
+            </div>
           </div>
         </div>
       </div>
@@ -253,7 +237,8 @@
         </div>
       </div>
     </section>
-    <script src="api.js"></script>
+    <script src="Api/main.js"></script>
+    <script src="Api/login.js"></script>
     <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="assets/web/assets/cookies-alert-plugin/cookies-alert-core.js"></script>
     <script src="assets/web/assets/cookies-alert-plugin/cookies-alert-script.js"></script>
