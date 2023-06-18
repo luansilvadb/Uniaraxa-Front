@@ -1,20 +1,21 @@
-// Função para carregar avaliadores cadastrados na tela de cadastro de campanha
+// Array de avaliadores
+var avaliadores = [];
+
+// Função para carregar os avaliadores
 function carregarAvaliadores() {
-    // Fazer uma requisição para a API para obter a lista de avaliadores
-    fetch("https://faculdadedb-faculdadeapi.yykemf.easypanel.host/api/Avaliador")
-      .then((response) => response.json())
-      .then((data) => {
-        var select = document.getElementById("avaliador-responsavel");
-        data.forEach((avaliador) => {
-          var option = document.createElement("option");
-          option.value = avaliador.id;
-          option.textContent = avaliador.nome;
-          select.appendChild(option);
-        });
-      })
-      .catch((error) => {
-        // Tratar erros
-        console.error(error);
-      });
-  }
-  
+  // Código para carregar os avaliadores
+  avaliadores.forEach(function(avaliador) {
+    // Criação e adição dos elementos HTML na página
+    var option = document.createElement("option");
+    option.value = avaliador.id;
+    option.textContent = avaliador.nome;
+
+    var selectElement = document.getElementById("avaliadorCampanha");
+    selectElement.appendChild(option);
+  });
+}
+
+// Espera que o DOM esteja pronto para executar o código
+document.addEventListener("DOMContentLoaded", function() {
+  carregarAvaliadores();
+});

@@ -142,51 +142,15 @@
       </nav>
     </section>
 
-    <section
-      data-bs-version="5.1"
-      class="pricing1 cid-tGQUqOtcju mbr-fullscreen"
-      id="pricing1-15"
-    >
+    <section data-bs-version="5.1" class="pricing1 cid-tGQUqOtcju mbr-fullscreen" id="pricing1-15">
       <div class="container">
         <h1 style="text-align: center; margin-top: 0; padding-top: 20px">
           <b>Campanha de Sugestões</b>
         </h1>
 
+        <button id="openAvaliadorFormButton" class="button">Criar Avaliador</button>
         <button id="openFormButton" class="button">Criar Campanha</button>
-        <button id="openAvaliadorFormButton" class="button">
-          Criar Avaliador
-        </button>
-
-        <form id="campaignForm" class="hidden" action="https://faculdadedb-faculdadeapi.yykemf.easypanel.host/api/Campanha" method="POST">
-          <label for="responsavel">Responsável:</label>
-          <input
-            type="text"
-            id="responsavel"
-            name="responsavel"
-            required
-          /><br />
-
-          <label for="nome">Nome:</label>
-          <input type="text" id="nomeCampanha" name="nome" required /><br />
-
-          <label for="descricao">Descrição:</label>
-          <textarea id="descricaoCampanha" name="descricao" required></textarea
-          ><br />
-
-          <label for="periodoCampanha">Período:</label>
-          <input type="text" id="periodo" name="periodo" required /><br />
-
-          <label for="premioCampanha">Valor do Prêmio:</label>
-          <input type="text" id="premio" name="premio" required /><br />
-
-          <label for="avaliador">Avaliador:</label>
-          <select id="avaliadorCampanha" name="avaliador" required>
-            <option value="">Selecione o avaliador</option>
-            <option value="joao_silva">João Silva</option></select
-          ><br />
-
-          <button type="submit">Cadastrar Campanha</button>
-        </form>
+        
         <form id="avaliadorForm" class="hidden" >
           <label for="nomeAvaliador">Nome do Avaliador:</label>
           <input type="text" id="nomeAvaliador" name="nome" required />
@@ -195,6 +159,31 @@
           <br />
           <button id="cadastrarAvaliador" type="submit">Cadastrar</button>
         </form>
+
+        <form id="campaignForm" class="hidden">
+          <label for="responsavel">Responsável:</label>
+          <input type="text" id="responsavel" name="responsavel" required /><br />
+  
+          <label for="nome">Nome:</label>
+          <input type="text" id="nomeCampanha" name="nome" required /><br />
+  
+          <label for="descricao">Descrição:</label>
+          <textarea id="descricaoCampanha" name="descricao" required></textarea><br />
+  
+          <label for="periodoCampanha">Período:</label>
+          <input type="text" id="periodo" name="periodo" required /><br />
+  
+          <label for="premioCampanha">Valor do Prêmio:</label>
+          <input type="text" id="premio" name="premio" required /><br />
+  
+          <label for="avaliador">Avaliador:</label>
+          <select id="avaliadorCampanha" name="avaliador" required>
+            <option value="">Selecione o avaliador</option>
+          </select><br />
+  
+          <button type="submit">Cadastrar Campanha</button>
+        </form>
+        
         <div id="campanhasContainer" class="campaigns-container"></div>
       </div>
     </section>
@@ -239,7 +228,10 @@
         </div>
       </div>
     </section>
-    <script src="api.js"></script>
+    <script src="Api/main.js"></script>
+    <script src="Api/campanha.js"></script>
+    <script src="Api/avaliador.js"></script>
+    <script src="Api/avaliadores.js"></script>
     <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="assets/web/assets/cookies-alert-plugin/cookies-alert-core.js"></script>
     <script src="assets/web/assets/cookies-alert-plugin/cookies-alert-script.js"></script>
