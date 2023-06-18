@@ -14,11 +14,6 @@ RewriteCond %{REQUEST_URI} !(.+)/$
 RewriteCond %{REQUEST_FILENAME} -d
 RewriteRule ^(.+)$ https://www.asapenvolvedoras.com.br/$1/ [R=301,L]
 
-# Force HTTPS and WWW 
-RewriteCond %{HTTP_HOST} !^www\.(.*)$ [OR,NC]
-RewriteCond %{https} off  
-RewriteRule ^(.*)$ https://www.asapenvolvedoras.com.br/$1 [R=301,L]
-
 RewriteBase /
 ## hide .html extension
 # To externally redirect /dir/foo.html to /dir/foo
