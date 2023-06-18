@@ -1,54 +1,73 @@
-var openFormButton = document.getElementById("openFormButton");
-var openAvaliadorFormButton = document.getElementById(
-  "openAvaliadorFormButton"
-);
-var campaignForm = document.getElementById("campaignForm");
-var avaliadorForm = document.getElementById("avaliadorForm");
-var campanhasContainer = document.getElementById("campanhasContainer");
+document.addEventListener("DOMContentLoaded", function() {
+  const openFormButton = document.getElementById("openFormButton");
+  const openAvaliadorFormButton = document.getElementById("openAvaliadorFormButton");
+  const campaignForm = document.getElementById("campaignForm");
+  const avaliadorForm = document.getElementById("avaliadorForm");
+  const campanhasContainer = document.getElementById("campanhasContainer");
 
-openFormButton.addEventListener("click", function () {
-  openFormButton.style.display = "none";
-  campaignForm.classList.remove("hidden");
-});
-
-openAvaliadorFormButton.addEventListener("click", function () {
-  openAvaliadorFormButton.style.display = "none";
-  avaliadorForm.classList.remove("hidden");
-});
-
-document
-  .getElementById("campaignForm")
-  .addEventListener("submit", function (event) {
-    event.preventDefault();
-
-    var responsavel = document.getElementById("responsavel").value;
-    var nome = document.getElementById("nomeCampanha").value;
-    var descricao = document.getElementById("descricaoCampanha").value;
-    var periodo = document.getElementById("periodo").value;
-    var premio = document.getElementById("premio").value;
-    var avaliador = document.getElementById("avaliadorCampanha").value;
-
-    var campanha = {
-      responsavel: responsavel,
-      nome: nome,
-      descricao: descricao,
-      periodo: periodo,
-      premio: premio,
-      avaliador: avaliador,
-    };
-
-    var card = createCard(campanha);
-    campanhasContainer.appendChild(card);
-
-    clearFormFields();
+  openFormButton.addEventListener("click", function() {
+    openFormButton.style.display = "none";
+    campaignForm.classList.remove("hidden");
   });
 
+  openAvaliadorFormButton.addEventListener("click", function() {
+    openAvaliadorFormButton.style.display = "none";
+    avaliadorForm.classList.remove("hidden");
+  });
+
+  campaignForm.addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const responsavel = document.getElementById("responsavel").value;
+    const nome = document.getElementById("nomeCampanha").value;
+    const descricao = document.getElementById("descricaoCampanha").value;
+    const periodo = document.getElementById("periodo").value;
+    const premio = document.getElementById("premio").value;
+    const avaliador = document.getElementById("avaliadorCampanha").value;
+
+    const campanha = {
+      responsavel,
+      nome,
+      descricao,
+      periodo,
+      premio,
+      avaliador
+    };
+
+    const card = createCard(campanha);
+    campanhasContainer.appendChild(card);
+
+    clearFormFields(campaignForm);
+  });
+
+  avaliadorForm.addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const nomeAvaliador = document.getElementById("nomeAvaliador").value;
+    const cpfAvaliador = document.getElementById("cpfAvaliador").value;
+
+    const avaliador = {
+      nome: nomeAvaliador,
+      cpf: cpfAvaliador
+    };
+
+    cadastrarAvaliador(avaliador);
+    clearFormFields(avaliadorForm);
+  });
+
+  campanhasContainer.addEventListener("click", function(event) {
+    if (event.target.classList.contains("vote-button")) {
+      handleVoteButtonClick(event);
+    }
+  });
+});
+
 function createCard(campanha) {
-  var card = document.createElement("div");
+  const card = document.createElement("div");
   card.classList.add("card");
   card.id = campanha.nome.toLowerCase().replace(/ /g, "-");
 
-  var cardContent = `
+  const cardContent = `
     <h2>${campanha.nome}</h2>
     <p><span class="label label--info">Responsável:</span> ${campanha.responsavel}</p>
     <p><span class="label label--info">Descrição:</span> ${campanha.descricao}</p>
@@ -66,19 +85,18 @@ function createCard(campanha) {
   return card;
 }
 
-function clearFormFields() {
-  document.getElementById("responsavel").value = "";
-  document.getElementById("nomeCampanha").value = "";
-  document.getElementById("descricaoCampanha").value = "";
-  document.getElementById("periodo").value = "";
-  document.getElementById("premio").value = "";
-  document.getElementById("avaliadorCampanha").value = "";
+function clearFormFields(form) {
+  const formInputs = form.querySelectorAll("input, textarea");
+
+  formInputs.forEach(input => {
+    input.value = "";
+  });
 }
 
 function handleVoteButtonClick(event) {
-  var card = event.target.closest(".card");
-  var votesElement = card.querySelector(".votes");
-  var votesCount = parseInt(votesElement.textContent);
+  const card = event.target.closest(".card");
+  const votesElement = card.querySelector(".votes");
+  let votesCount = parseInt(votesElement.textContent);
 
   votesCount++;
   votesElement.textContent = votesCount + " votos";
@@ -86,10 +104,24 @@ function handleVoteButtonClick(event) {
   event.target.disabled = true;
 }
 
-document
-  .getElementById("campanhasContainer")
-  .addEventListener("click", function (event) {
-    if (event.target.classList.contains("vote-button")) {
-      handleVoteButtonClick(event);
-    }
-  });
+function cadastrarAvaliador(avaliador) {
+  // Fazer uma requisição para a API para cadastrar o avaliador
+  fetch("https://faculdadedb-faculdadeapi.yykemf.easypanel.host/api/Avaliador", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(avaliador)
+  })
+    .then(response => {
+      if (response.ok) {
+        alert("Avaliador cadastrado com sucesso!");
+      } else {
+        throw new Error("Erro ao cadastrar o avaliador.");
+      }
+    })
+    .catch(error => {
+      console.error(error);
+      alert("Ocorreu um erro ao cadastrar o avaliador. Por favor, tente novamente mais tarde.");
+    });
+}
