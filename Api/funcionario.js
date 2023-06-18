@@ -28,16 +28,21 @@ document.addEventListener("DOMContentLoaded", function() {
       },
       body: JSON.stringify({ login, senha, nome, cpf }),
     })
-      .then((response) => response.json())
+      .then((response) => {
+        if (response.status === 200) {
+          // Redirecionar para a página de login
+          window.location.replace("login.html");
+        } else {
+          return response.json();
+        }
+      })
       .then((data) => {
         // Lógica após a resposta da API
         console.log(data);
-        if (data.success) {
+        if (data && data.success) {
           // Cadastro bem-sucedido
           alert("Funcionário cadastrado com sucesso!");
-          // Redirecionar para a página de login ou outra página adequada
-          window.location.replace("login.html");
-        } else if (data.error) {
+        } else if (data && data.error) {
           // Cadastro falhou
           alert("Erro ao cadastrar o funcionário. Por favor, tente novamente.");
         }

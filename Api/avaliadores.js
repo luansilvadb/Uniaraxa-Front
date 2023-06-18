@@ -1,7 +1,7 @@
 // Função para carregar avaliadores cadastrados na tela de cadastro de campanha
 function carregarAvaliadores() {
     // Fazer uma requisição para a API para obter a lista de avaliadores
-    fetch("http://softwarehouse.ddns.net:62617/api/Avaliador")
+    fetch("https://faculdadedb-faculdadeapi.yykemf.easypanel.host/api/Avaliador")
       .then((response) => response.json())
       .then((data) => {
         var select = document.getElementById("avaliador-responsavel");

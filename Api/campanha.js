@@ -18,7 +18,7 @@ function cadastrarCampanha() {
     };
   
     // Fazer uma requisição para a API para inserir os dados da campanha
-    fetch("http://softwarehouse.ddns.net:62617/api/Campanha", {
+    fetch("https://faculdadedb-faculdadeapi.yykemf.easypanel.host/api/Campanha", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

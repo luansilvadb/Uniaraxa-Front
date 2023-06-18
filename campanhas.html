@@ -157,7 +157,7 @@
           Criar Avaliador
         </button>
 
-        <form id="campaignForm" class="hidden">
+        <form id="campaignForm" class="hidden" action="https://faculdadedb-faculdadeapi.yykemf.easypanel.host/api/Campanha" method="POST">
           <label for="responsavel">Responsável:</label>
           <input
             type="text"
@@ -187,10 +187,10 @@
 
           <button type="submit">Cadastrar Campanha</button>
         </form>
-        <form id="avaliadorForm" class="hidden">
+        <form id="avaliadorForm" class="hidden" >
           <label for="nomeAvaliador">Nome do Avaliador:</label>
           <input type="text" id="nomeAvaliador" name="nome" required />
-          <label for="nomeAvaliador">CPF do Avaliador:</label>
+          <label for="cpfAvaliador">CPF do Avaliador:</label>
           <input type="text" id="cpfAvaliador" name="cpf" required />
           <br />
           <button id="cadastrarAvaliador" type="submit">Cadastrar</button>

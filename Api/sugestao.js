@@ -12,7 +12,7 @@ function cadastrarSugestao() {
     };
   
     // Fazer uma requisição para a API para inserir os dados da sugestão
-    fetch("http://softwarehouse.ddns.net:62617/api/Sugestao", {
+    fetch("https://faculdadedb-faculdadeapi.yykemf.easypanel.host/api/Sugestao", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -33,7 +33,7 @@ function cadastrarSugestao() {
   // Função para carregar campanhas cadastradas na tela de cadastro de sugestão
   function carregarCampanhas() {
     // Fazer uma requisição para a API para obter a lista de campanhas
-    fetch("http://softwarehouse.ddns.net:62617/api/Campanha")
+    fetch("https://faculdadedb-faculdadeapi.yykemf.easypanel.host/api/Campanha")
       .then((response) => response.json())
       .then((data) => {
         var select = document.getElementById("campanha-relacionada");
@@ -53,7 +53,7 @@ function cadastrarSugestao() {
   // Função para carregar sugestões cadastradas na tela de avaliação de sugestões
   function carregarSugestoes() {
     // Fazer uma requisição para a API para obter a lista de sugestões
-    fetch("http://softwarehouse.ddns.net:62617/api/Sugestao")
+    fetch("https://faculdadedb-faculdadeapi.yykemf.easypanel.host/api/Sugestao")
       .then((response) => response.json())
       .then((data) => {
         var lista = document.getElementById("lista-sugestoes");
@@ -110,7 +110,7 @@ function cadastrarSugestao() {
       };
   
       // Fazer uma requisição para a API para inserir os dados de avaliação da sugestão
-      fetch(`http://softwarehouse.ddns.net:62617/api/Sugestao/${sugestaoId}/Avaliacao`, {
+      fetch(`https://faculdadedb-faculdadeapi.yykemf.easypanel.host/api/Sugestao/${sugestaoId}/Avaliacao`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
