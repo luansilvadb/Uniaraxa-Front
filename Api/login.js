@@ -1,5 +1,8 @@
-// Função para realizar o login
-function fazerLogin() {
+// Aguarda o carregamento completo da página antes de adicionar o evento de clique
+document.addEventListener("DOMContentLoaded", function() {
+function fazerLogin(event) {
+  event.preventDefault(); // Impede o envio do formulário e o recarregamento da página
+
   var cpf = document.getElementById("cpf").value;
   var senha = document.getElementById("senha").value;
 
@@ -20,15 +23,17 @@ function fazerLogin() {
         window.location.replace("campanhas.html");
       } else {
         // Login falhou
+        alert("CPF ou senha inválidos. Tente novamente.");
       }
     })
     .catch((error) => {
       // Tratar erros
       console.error(error);
+      alert("Ocorreu um erro durante o login. Por favor, tente novamente mais tarde.");
     });
 }
 
-// ...
 
-// Evento de clique no botão de login
-document.getElementById("login-btn").addEventListener("click", fazerLogin);
+  // Evento de clique no botão de login
+  document.getElementById("login-btn").addEventListener("click", fazerLogin);
+});
