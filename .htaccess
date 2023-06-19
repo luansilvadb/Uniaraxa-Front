@@ -1,8 +1,36 @@
-<IfModule mod_rewrite.c>
-   RewriteEngine On
-   RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /html/(.*).html\ HTTP/
-   RewriteRule .* http://localhost/html/%1 [R=301,L]
 
-   RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /html/(.*)\ HTTP/
-   RewriteRule .* %1.html [L]
+<IfModule mod_rewrite.c>
+#### Force HTTPS://WWW and remove trailing / from files ####
+## Turn on rewrite engine
+RewriteEngine on
+
+# Remove trailing slash from non-filepath urls
+RewriteCond %{REQUEST_URI} /(.+)/$
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ https://www.asapenvolvedoras.com.br/%1 [R=301,L]
+
+# Include trailing slash on directory 
+RewriteCond %{REQUEST_URI} !(.+)/$
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^(.+)$ https://www.asapenvolvedoras.com.br/$1/ [R=301,L]
+
+RewriteBase /
+## hide .html extension
+# To externally redirect /dir/foo.html to /dir/foo
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s([^.]+).html
+RewriteRule ^ %1 [R=301,L]
+
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s([^.]+)/\s
+RewriteRule ^ %1 [R=301,L]
+
+## To internally redirect /dir/foo to /dir/foo.html
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^([^\.]+)$ $1.html [L]
+
+<Files ~"^.*\.([Hh][Tt][Aa])">
+order allow,deny
+deny from all
+satisfy all
+</Files>
 </IfModule>
+
