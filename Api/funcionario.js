@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     // Fazer uma requisição para a API para inserir os dados do funcionário
-    fetch("https://faculdadedb-faculdadeapi.yykemf.easypanel.host/api/Funcionario", {
+    fetch("https://api.luansilva.com.br/api/Funcionario", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -126,3 +126,6 @@ button[type="submit"] {
 .hidden {
   display: none;
 }
+.campanhasContainer {
+  align-items: flex-start;
+}

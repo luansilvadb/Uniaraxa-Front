@@ -2,7 +2,7 @@
 document.addEventListener("DOMContentLoaded", function () {
   carregarAvaliadores();
   carregarCampanhas();
-  //carregarSugestoes();
+  carregarSugestoes();
 });
 
 // Função para carregar as campanhas

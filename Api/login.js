@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     // Fazer uma requisição para a API para realizar o login
-    fetch("https://faculdadedb-faculdadeapi.yykemf.easypanel.host/api/Login", {
+    fetch("https://api.luansilva.com.br/api/Login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

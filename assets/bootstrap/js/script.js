@@ -106,7 +106,7 @@ function handleVoteButtonClick(event) {
 
 function cadastrarAvaliador(avaliador) {
   // Fazer uma requisição para a API para cadastrar o avaliador
-  fetch("https://faculdadedb-faculdadeapi.yykemf.easypanel.host/api/Avaliador", {
+  fetch("https://api.luansilva.com.br/api/Avaliador", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"

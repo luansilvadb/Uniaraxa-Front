@@ -10,7 +10,7 @@ document.getElementById("avaliadorForm").addEventListener("submit", function(eve
   };
 
   // Fazer uma requisição para a API para cadastrar o avaliador
-  fetch("https://faculdadedb-faculdadeapi.yykemf.easypanel.host/api/Avaliador", {
+  fetch("https://api.luansilva.com.br/api/Avaliador", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

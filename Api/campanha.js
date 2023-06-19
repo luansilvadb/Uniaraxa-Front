@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   function fetchAvaliadores(selectElement) {
-    fetch("https://faculdadedb-faculdadeapi.yykemf.easypanel.host/api/Avaliador")
+    fetch("https://api.luansilva.com.br/api/Avaliador")
       .then((response) => response.json())
       .then((data) => {
         data.forEach((avaliador) => {
@@ -50,27 +50,31 @@ document.addEventListener("DOMContentLoaded", function () {
         alert("Ocorreu um erro ao obter a lista de avaliadores. Por favor, tente novamente mais tarde.");
       });
   }
+  
 
   function cadastrarCampanha(campanha) {
-    fetch("https://faculdadedb-faculdadeapi.yykemf.easypanel.host/api/campanha", {
+    fetch("https://api.luansilva.com.br/api/Campanha", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(campanha),
     })
-      .then((response) => {
+      .then(response => {
         if (response.ok) {
           alert("Campanha cadastrada com sucesso!");
+          carregarCampanhas(); // Atualizar a lista de cards após o cadastro bem-sucedido
         } else {
           throw new Error("Erro ao cadastrar campanha. Verifique os dados e tente novamente.");
         }
       })
-      .catch((error) => {
+      .catch(error => {
         console.error(error);
         alert("Ocorreu um erro durante o cadastro da campanha. Por favor, tente novamente mais tarde.");
       });
   }
+  
+  
 
   function clearFormFields() {
     document.getElementById("responsavel").value = "";
