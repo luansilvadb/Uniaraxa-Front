@@ -10,8 +10,8 @@ Esse foi um trabalho da faculdade, uma landing page em html, css e javascript pu
 
 Contribuições são sempre bem-vindas! Aqui estão as maneiras pelas quais você pode contribuir:
 
-- [Reportando bugs](https://github.com/luansilvadb/stream-pedro/issues)
-- [Sugerindo melhorias](https://github.com/luansilvadb/stream-pedro/issues)
+- [Reportando bugs](https://github.com/luansilvadb/Uniaraxa-Front/issues)
+- [Sugerindo melhorias](https://github.com/luansilvadb/Uniaraxa-Front/issues)
 
 ### Reportando Bugs
 
